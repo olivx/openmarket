@@ -1,0 +1,13 @@
+.vscode
+__pycache__/
+.pytest_cache/
+coverage*
+junit*
+.coverage
+.static
+*.log
+htmlcov/
+.env
+db.sqlite3
+.idea
+static
