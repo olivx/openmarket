@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - .:/app/
+    working_dir: /app
+    environment:
+      - DATABASE_URL=postgis://postgres:postgres@db:5432/open-market
+      - DEBUG=True
+      - SECRET_KEY=bla_bla_bla
+      - LOG_LEVEL=INFO
+      - WORKERS=1
+    entrypoint: ./entrypoint-compose.sh
+    ports:
+      - 8000:8000
+    networks:
+      - dev
+    depends_on:
+      - db
+  db:
+    image: kartoza/postgis:13.0
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=open-market
+    networks:
+      - dev
+
+networks:
+  dev:
+
