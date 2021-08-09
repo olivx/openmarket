@@ -1,0 +1,16 @@
+apiVersion: kubedb.com/v1alpha1
+kind: Postgres
+metadata:
+  name: open-market-app-postgres
+  labels:
+    app: open-market-app
+    tier: database
+spec:
+  version: "11.1"
+  storageType: Ephemeral
+  databaseSecret:
+    secretName: open-market-app-postgres-auth
+  init:
+    scriptSource:
+      configMap:
+        name: open-market-app-pg-init-script

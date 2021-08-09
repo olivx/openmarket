@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name:  open-market-app-api
+  labels:
+    app: open-market-app
+spec:
+  selector:
+    app: open-market-app
+    tier: backend
+  type:  NodePort
+  ports:
+  - name:  http
+    port:  8000
+    targetPort:  8000
