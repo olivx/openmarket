@@ -2,7 +2,7 @@
 name = "openmarket"
 version = "0.1.0"
 description = ""
-authors = ["Thiago Olieira Vicente <thiago.vicente@tivit.com>"]
+authors = ["Thiago Olieira Vicente <oliveiravicente.net@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
